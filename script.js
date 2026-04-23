@@ -1,10 +1,12 @@
-// --- 1. SPLASH SCREEN (Ocultar al cargar) ---
+// --- 1. SPLASH SCREEN (Pantalla de carga) ---
 window.addEventListener('load', () => {
     setTimeout(() => {
         const splash = document.getElementById('splash-screen');
-        splash.style.opacity = '0';
-        setTimeout(() => { splash.style.display = 'none'; }, 800);
-    }, 1500);
+        if(splash) {
+            splash.style.opacity = '0';
+            setTimeout(() => { splash.style.display = 'none'; }, 800);
+        }
+    }, 1500); // 1.5 segundos de animación
 });
 
 // --- 2. LÓGICA DEL CARRITO Y TOASTS ---
@@ -14,20 +16,20 @@ function toggleCart() {
     document.getElementById('cartSidebar').classList.toggle('open');
 }
 
+// Función de notificación flotante
 function showToast(message) {
     const container = document.getElementById('toast-container');
     const toast = document.createElement('div');
     toast.className = 'toast';
     toast.innerHTML = `<i class="fas fa-check-circle" style="color:#27ae60; margin-right:8px;"></i> ${message}`;
     container.appendChild(toast);
-    
     setTimeout(() => { toast.remove(); }, 3000); 
 }
 
 function addToCart(name, price, image) {
     cart.push({ name, price, image });
     updateCartUI();
-    showToast(`${name} añadido a tu orden`);
+    showToast(`✅ ${name} añadido a tu orden`);
 }
 
 function removeFromCart(index) {
@@ -45,7 +47,7 @@ function updateCartUI() {
     let sum = 0;
 
     if (cart.length === 0) {
-        container.innerHTML = '<p style="text-align:center; margin-top:20px; color:#666;">Tu carrito está vacío.</p>';
+        container.innerHTML = '<p style="text-align:center; margin-top:20px; color:#666;">Sin items en la orden.</p>';
     } else {
         cart.forEach((item, index) => {
             sum += item.price;
@@ -64,9 +66,9 @@ function updateCartUI() {
         });
     }
     
-    count.innerText = cart.length;
+    if(count) count.innerText = cart.length;
     if(mCount) mCount.innerText = cart.length;
-    total.innerText = sum.toFixed(2);
+    if(total) total.innerText = sum.toFixed(2);
 }
 
 // --- 3. FILTRADO DE CATEGORÍAS ---
@@ -76,11 +78,14 @@ function filterMenu(category) {
     products.forEach(product => {
         if (category === 'todos') {
             product.style.display = 'block';
+            setTimeout(() => { product.style.opacity = '1'; }, 50);
         } else {
             if (product.getAttribute('data-category') === category) {
                 product.style.display = 'block';
+                setTimeout(() => { product.style.opacity = '1'; }, 50);
             } else {
-                product.style.display = 'none';
+                product.style.opacity = '0';
+                setTimeout(() => { product.style.display = 'none'; }, 300);
             }
         }
     });
@@ -109,10 +114,10 @@ function addFromQuickView() {
     closeQuickView();
 }
 
-// --- 5. LÓGICA WHATSAPP CHECKOUT ---
+// --- 5. LÓGICA WHATSAPP CHECKOUT (Adaptada para Comida) ---
 function sendWhatsAppOrder() {
     if (cart.length === 0) {
-        alert("Agrega algo al carrito primero.");
+        alert("Agrega algo a tu orden primero.");
         return;
     }
 
@@ -120,7 +125,7 @@ function sendWhatsAppOrder() {
     const address = document.getElementById('display-address').innerText;
     const phoneNumber = "521111111111"; // <--- CAMBIA ESTO POR TU NÚMERO
     
-    let message = `NUEVA ORDEN NIGHT BITES \n\n`;
+    let message = `NUEVA ORDEN MIDNIGHT SNACKS\n\n`;
     message += `Tipo: ${deliveryType}\n`;
     if(deliveryType === "DOMICILIO") {
         message += `Dirección: ${address}\n\n`;
@@ -129,18 +134,18 @@ function sendWhatsAppOrder() {
     
     let total = 0;
     cart.forEach(item => {
-        message += `- ${item.name} ($${item.price})\n`;
+        message += `- 1x ${item.name} ($${item.price})\n`;
         total += item.price;
     });
 
-    message += `\nTOTAL: $${total.toFixed(2)}\n\n`;
+    message += `\nTOTAL: $${total.toFixed(2)}*\n\n`;
     message += `Hola, quiero confirmar esta orden.`;
 
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
 }
 
-// --- 6. MAPA Y DELIVERY/PICKUP ---
+// --- 6. MAPA, BÚSQUEDA Y GEOLOCALIZACIÓN ---
 function setOrderType(type) {
     const btnDelivery = document.getElementById('btn-delivery');
     const btnPickup = document.getElementById('btn-pickup');
@@ -174,7 +179,7 @@ function confirmAddress() {
     const addressDisplay = document.getElementById('display-address');
     
     if (inputAddress.trim() === "") {
-        alert("Por favor ingresa una dirección válida.");
+        alert("Por favor ingresa una dirección válida o usa el GPS.");
         return;
     }
     addressDisplay.innerText = inputAddress;
@@ -200,10 +205,41 @@ addressInput.addEventListener('keydown', () => {
 function updateMap() {
     const address = addressInput.value;
     const encodedAddress = encodeURIComponent(address);
-    mapIframe.src = `https://maps.google.com/maps?q=$${encodedAddress}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+    mapIframe.src = `https://maps.google.com/maps?q=${encodedAddress}&hl=es&z=15&output=embed`;
 }
 
-// Cerrar modales al tocar el fondo negro
+function getCurrentLocation() {
+    const gpsBtn = document.getElementById('gps-btn');
+    gpsBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+    addressInput.value = "Buscando tu ubicación...";
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                addressInput.value = "📍 Ubicación actual seleccionada";
+                mapIframe.src = `https://maps.google.com/maps?q=${lat},${lng}&hl=es&z=16&output=embed`;
+                gpsBtn.innerHTML = '<i class="fas fa-location-arrow"></i>';
+            },
+            (error) => {
+                let mensajeError = "No pudimos acceder a tu ubicación.";
+                if (error.code === 1) mensajeError = "Permiso denegado. Activa el GPS.";
+                if (error.code === 2) mensajeError = "La red no responde.";
+                if (error.code === 3) mensajeError = "Se agotó el tiempo.";
+                alert(mensajeError + " Escribe tu dirección manualmente.");
+                addressInput.value = "";
+                gpsBtn.innerHTML = '<i class="fas fa-location-arrow"></i>';
+            },
+            { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 } 
+        );
+    } else {
+        alert("Tu navegador no soporta geolocalización.");
+        gpsBtn.innerHTML = '<i class="fas fa-location-arrow"></i>';
+    }
+}
+
+// Cerrar modales al tocar el fondo oscuro
 window.onclick = function(event) {
     if (event.target == mapModal) closeMapModal();
     if (event.target == qvModal) closeQuickView();
