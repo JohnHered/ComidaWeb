@@ -1,29 +1,26 @@
-// --- 1. SPLASH SCREEN (Pantalla de carga) ---
 window.addEventListener('load', () => {
     setTimeout(() => {
         const splash = document.getElementById('splash-screen');
-        if(splash) {
+        if (splash) {
             splash.style.opacity = '0';
             setTimeout(() => { splash.style.display = 'none'; }, 800);
         }
-    }, 1500); // 1.5 segundos de animación
+    }, 1500);
 });
 
-// --- 2. LÓGICA DEL CARRITO Y TOASTS ---
-let cart = []; 
+let cart = [];
 
 function toggleCart() {
     document.getElementById('cartSidebar').classList.toggle('open');
 }
 
-// Función de notificación flotante
 function showToast(message) {
     const container = document.getElementById('toast-container');
     const toast = document.createElement('div');
     toast.className = 'toast';
     toast.innerHTML = `<i class="fas fa-check-circle" style="color:#27ae60; margin-right:8px;"></i> ${message}`;
     container.appendChild(toast);
-    setTimeout(() => { toast.remove(); }, 3000); 
+    setTimeout(() => { toast.remove(); }, 3000);
 }
 
 function addToCart(name, price, image) {
@@ -42,7 +39,7 @@ function updateCartUI() {
     const count = document.getElementById('cart-count');
     const mCount = document.getElementById('mobile-cart-count');
     const total = document.getElementById('cart-total');
-    
+
     container.innerHTML = '';
     let sum = 0;
 
@@ -53,9 +50,9 @@ function updateCartUI() {
             sum += item.price;
             container.innerHTML += `
                 <div class="cart-item">
-                    <img src="${item.image}" alt="${item.name}">
+                    <img src="${item.image}" alt="Img">
                     <div class="item-details">
-                        <h4>${item.name}</h4>
+                        <h4 style="font-size:12px; line-height:1.2;">${item.name}</h4>
                         <p class="price">$${item.price.toFixed(2)}</p>
                     </div>
                     <button class="remove-btn" onclick="removeFromCart(${index})">
@@ -65,16 +62,14 @@ function updateCartUI() {
             `;
         });
     }
-    
-    if(count) count.innerText = cart.length;
-    if(mCount) mCount.innerText = cart.length;
-    if(total) total.innerText = sum.toFixed(2);
+
+    if (count) count.innerText = cart.length;
+    if (mCount) mCount.innerText = cart.length;
+    if (total) total.innerText = sum.toFixed(2);
 }
 
-// --- 3. FILTRADO DE CATEGORÍAS ---
 function filterMenu(category) {
     const products = document.querySelectorAll('.product-card');
-    
     products.forEach(product => {
         if (category === 'todos') {
             product.style.display = 'block';
@@ -91,16 +86,15 @@ function filterMenu(category) {
     });
 }
 
-// --- 4. MODAL VISTA RÁPIDA ---
 const qvModal = document.getElementById("quickViewModal");
-let currentQVItem = {}; 
+let currentQVItem = {};
 
 function openQuickView(name, price, image, desc) {
     document.getElementById('qv-title').innerText = name;
     document.getElementById('qv-price').innerText = `$ ${price.toFixed(2)}`;
     document.getElementById('qv-img').src = image;
     document.getElementById('qv-desc').innerText = desc;
-    
+
     currentQVItem = { name, price, image };
     qvModal.style.display = "flex";
 }
@@ -114,7 +108,50 @@ function addFromQuickView() {
     closeQuickView();
 }
 
-// --- 5. LÓGICA WHATSAPP CHECKOUT (Adaptada para Comida) ---
+
+const customModal = document.getElementById("customCrepeModal");
+
+function openCustomCrepeModal() {
+    customModal.style.display = "flex";
+    updateCrepePrice();
+}
+
+function closeCustomCrepeModal() {
+    customModal.style.display = "none";
+}
+
+function updateCrepePrice() {
+    let total = 60;
+    const extras = document.querySelectorAll('.crepe-extra:checked');
+    total += (extras.length * 15);
+    document.getElementById('customCrepeTotal').innerText = `Total: $${total.toFixed(2)}`;
+}
+
+function addCustomToCart() {
+    let total = 60;
+    let selectedExtras = [];
+    const extras = document.querySelectorAll('.crepe-extra:checked');
+
+    extras.forEach(cb => {
+        selectedExtras.push(cb.value);
+        total += 15;
+    });
+
+    let desc = selectedExtras.length > 0 ? selectedExtras.join(', ') : "Sencilla";
+    let itemName = `Crepa Armada (${desc})`;
+
+
+    let customImg = 'https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=500&q=80';
+
+    addToCart(itemName, total, customImg);
+    closeCustomCrepeModal();
+
+    document.getElementById('custom-crepe-form').reset();
+    updateCrepePrice();
+}
+
+
+
 function sendWhatsAppOrder() {
     if (cart.length === 0) {
         alert("Agrega algo a tu orden primero.");
@@ -123,29 +160,29 @@ function sendWhatsAppOrder() {
 
     const deliveryType = document.getElementById('btn-delivery').classList.contains('active') ? "DOMICILIO" : "RECOGER EN SUCURSAL";
     const address = document.getElementById('display-address').innerText;
-    const phoneNumber = "521111111111"; // <--- CAMBIA ESTO POR TU NÚMERO
-    
-    let message = `NUEVA ORDEN MIDNIGHT SNACKS\n\n`;
+    const phoneNumber = "5527796409";
+
+    let message = `NUEVA ORDEN !! CREPAS  L U N A | L L E N A \n\n`;
     message += `Tipo: ${deliveryType}\n`;
-    if(deliveryType === "DOMICILIO") {
+    if (deliveryType === "DOMICILIO") {
         message += `Dirección: ${address}\n\n`;
     }
     message += `Mi pedido:\n`;
-    
+
     let total = 0;
     cart.forEach(item => {
         message += `- 1x ${item.name} ($${item.price})\n`;
         total += item.price;
     });
 
-    message += `\nTOTAL: $${total.toFixed(2)}*\n\n`;
+    message += `\nTOTAL: $${total.toFixed(2)}\n\n`;
     message += `Hola, quiero confirmar esta orden.`;
 
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
 }
 
-// --- 6. MAPA, BÚSQUEDA Y GEOLOCALIZACIÓN ---
+
 function setOrderType(type) {
     const btnDelivery = document.getElementById('btn-delivery');
     const btnPickup = document.getElementById('btn-pickup');
@@ -165,7 +202,7 @@ function setOrderType(type) {
 const mapModal = document.getElementById("mapModal");
 
 function openMapModal() {
-    if(document.getElementById('btn-delivery').classList.contains('active')) {
+    if (document.getElementById('btn-delivery').classList.contains('active')) {
         mapModal.style.display = "flex";
     }
 }
@@ -177,7 +214,7 @@ function closeMapModal() {
 function confirmAddress() {
     const inputAddress = document.getElementById('address-input').value;
     const addressDisplay = document.getElementById('display-address');
-    
+
     if (inputAddress.trim() === "") {
         alert("Por favor ingresa una dirección válida o usa el GPS.");
         return;
@@ -188,8 +225,8 @@ function confirmAddress() {
 
 const addressInput = document.getElementById('address-input');
 const mapIframe = document.getElementById('google-map-iframe');
-let typingTimer;                
-const doneTypingInterval = 800; 
+let typingTimer;
+const doneTypingInterval = 800;
 
 addressInput.addEventListener('keyup', () => {
     clearTimeout(typingTimer);
@@ -231,7 +268,7 @@ function getCurrentLocation() {
                 addressInput.value = "";
                 gpsBtn.innerHTML = '<i class="fas fa-location-arrow"></i>';
             },
-            { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 } 
+            { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
         );
     } else {
         alert("Tu navegador no soporta geolocalización.");
@@ -239,8 +276,8 @@ function getCurrentLocation() {
     }
 }
 
-// Cerrar modales al tocar el fondo oscuro
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == mapModal) closeMapModal();
     if (event.target == qvModal) closeQuickView();
+    if (event.target == customModal) closeCustomCrepeModal();
 }

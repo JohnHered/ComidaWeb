@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> S N A C K S |</title>
+    <title>C R E P A S | LUNA LLENA </title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Oswald:wght@500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
     <div id="splash-screen">
-        <h1 class="splash-logo">M I D N I G H T . S N A C K S</h1>
+        <h1 class="splash-logo"> C R E P A S</h1>
     </div>
 
     <nav class="navbar">
-        <div class="logo">M I D N I G H T . S N A C K S</div>
+        <div class="logo">L U N A | L L E N A</div>
         <button class="cart-btn" onclick="toggleCart()">🛒 Orden (<span id="cart-count">0</span>)</button>
     </nav>
 
@@ -36,36 +40,45 @@
     </div>
 
     <header class="hero-slider">
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1920&q=80');">
+        <div class="slide active" style="background-image: url('https://i.postimg.cc/TPb27Hck/crep.jpg');">
             <div class="slide-content">
-                <h1>SUGAR <br> RUSH</h1>
-                <p style="color: white; margin-bottom: 20px; font-size: 20px; font-family: 'Oswald', sans-serif;">2x1 EN POSTRES SELECCIONADOS</p>
-                <button class="btn-premium" onclick="document.getElementById('menu-section').scrollIntoView({behavior: 'smooth'})">ORDENAR AHORA</button>
+                <h1>DISEÑA TU <br> CREPA</h1>
+                <p style="color: white; margin-bottom: 20px; font-size: 20px; font-family: 'Oswald', sans-serif;">A TU
+                    GUSTO, SIN LÍMITES</p>
+                <button class="btn-premium" onclick="openCustomCrepeModal()">ARMAR AHORA</button>
             </div>
         </div>
     </header>
 
     <section class="circular-categories" id="menu-section">
-        <div class="category-item" onclick="filterMenu('postres')">
+        <div class="category-item" onclick="filterMenu('saladas')">
             <div class="category-img-box">
-                <img src="https://i.postimg.cc/k4815JP6/past.jpg" alt="Postres">
+                <img src="https://i.postimg.cc/Kj0Q6fNj/crepa.jpg" alt="Saladas">
             </div>
-            <span>POSTRES</span>
+            <span>SALADAS</span>
         </div>
-        <div class="category-item" onclick="filterMenu('snacks')">
+        <div class="category-item" onclick="filterMenu('dulces')">
             <div class="category-img-box">
-                <img src="https://i.postimg.cc/XJMLmRGT/snack.jpg" alt="Snacks">
+                <img src="https://i.postimg.cc/TPb27Hck/crep.jpg" alt="Dulces">
             </div>
-            <span>SNACKS</span>
+            <span>DULCES</span>
         </div>
         <div class="category-item" onclick="filterMenu('bebidas')">
             <div class="category-img-box">
-                <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=200&q=80" alt="Malteadas">
+                <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=200&q=80"
+                    alt="Malteadas">
             </div>
             <span>SHAKES</span>
         </div>
+        <div class="category-item" onclick="filterMenu('comidas')">
+            <div class="category-img-box">
+                <img src="https://i.postimg.cc/85DvdNJs/band.jpg" alt="Malteadas">
+            </div>
+            <span>BANDERILLAS</span>
+        </div>
         <div class="category-item" onclick="filterMenu('todos')">
-            <div class="category-img-box" style="display: flex; align-items:center; justify-content:center; background:#111;">
+            <div class="category-img-box"
+                style="display: flex; align-items:center; justify-content:center; background:#111;">
                 <i class="fas fa-th-large" style="color:white; font-size: 30px;"></i>
             </div>
             <span>VER TODO</span>
@@ -73,73 +86,141 @@
     </section>
 
     <section class="products">
-        <h2 class="section-title">EL MENÚ</h2>
+        <h2 class="section-title">NUESTRO MENU</h2>
         <div class="product-grid" id="menu-grid">
-            
-            <div class="product-card" data-category="postres">
+
+            <div class="product-card" data-category="saladas">
                 <div class="product-image-container">
-                    <span class="product-badge fire">🔥 MÁS VENDIDO</span>
-                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80" alt="Lava Cake">
+                    <img src="https://i.postimg.cc/Kj0Q6fNj/crepa.jpg" alt="Champiñones">
                     <div class="bottom-actions">
-                        <button class="action-btn" onclick="openQuickView('Lava Cake Dark', 95.00, 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80', 'Pastel de chocolate belga con un corazón derretido de cacao al 70%. Se sirve caliente.')">VISTA RÁPIDA</button>
-                        <button class="action-btn" onclick="addToCart('Lava Cake Dark', 95.00, 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80')">AÑADIR</button>
+                        <button class="action-btn"
+                            onclick="openQuickView('Crepa Champiñones y Queso', 85.00, 'https://i.postimg.cc/Kj0Q6fNj/crepa.jpg', 'Deliciosa mezcla de champiñones salteados con finas hierbas y abundante queso manchego derretido.')">VISTA
+                            RÁPIDA</button>
+                        <button class="action-btn"
+                            onclick="addToCart('Crepa Champiñones y Queso', 85.00, 'https://i.postimg.cc/Kj0Q6fNj/crepa.jpg')">AÑADIR</button>
                     </div>
                 </div>
                 <div class="product-info">
-                    <h3>Lava Cake "Dark"</h3>
+                    <h3>Champiñones c/ Queso</h3>
+                    <p class="price">$ 85.00</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="saladas">
+                <div class="product-image-container">
+                    <span class="product-badge fire">🔥 CLÁSICA</span>
+                    <img src="https://i.postimg.cc/Y0XZ6YhN/crep-hawa.jpg" alt="Hawaiana">
+                    <div class="bottom-actions">
+                        <button class="action-btn"
+                            onclick="openQuickView('Crepa Hawaiana', 90.00, 'https://i.postimg.cc/Y0XZ6YhN/crep-hawa.jpg', 'El clásico contraste: Jamón de pavo, piña en almíbar asada y costra de queso derretido.')">VISTA
+                            RÁPIDA</button>
+                        <button class="action-btn"
+                            onclick="addToCart('Crepa Hawaiana', 90.00, 'https://i.postimg.cc/Y0XZ6YhN/crep-hawa.jpg')">AÑADIR</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Crepa Hawaiana</h3>
+                    <p class="price">$ 90.00</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="dulces">
+                <div class="product-image-container">
+                    <img src="https://i.postimg.cc/XYXGkbDs/crep-banana.jpg" alt="Banana Split">
+                    <div class="bottom-actions">
+                        <button class="action-btn"
+                            onclick="openQuickView('Crepa Banana Split', 100.00, 'https://i.postimg.cc/XYXGkbDs/crep-banana.jpg', 'Nutella, trozos de plátano fresco, helado de vainilla, nuez troceada y jarabe de chocolate.')">VISTA
+                            RÁPIDA</button>
+                        <button class="action-btn"
+                            onclick="addToCart('Crepa Banana Split', 100.00, 'https://i.postimg.cc/XYXGkbDs/crep-banana.jpg')">AÑADIR</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Banana Split</h3>
+                    <p class="price">$ 100.00</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="saladas">
+                <div class="product-image-container">
+                    <span class="product-badge new">✨ EXÓTICA</span>
+                    <img src="https://i.postimg.cc/nrQB2tzV/crepastor.jpg" alt="Pastor">
+                    <div class="bottom-actions">
+                        <button class="action-btn"
+                            onclick="openQuickView('Crepa al Pastor', 115.00, 'https://i.postimg.cc/nrQB2tzV/crepastor.jpg', 'Fusión urbana: Carne al pastor adobada, piña asada, queso manchego, cebolla y cilantro.')">VISTA
+                            RÁPIDA</button>
+                        <button class="action-btn"
+                            onclick="addToCart('Crepa al Pastor', 115.00, 'https://i.postimg.cc/nrQB2tzV/crepastor.jpg')">AÑADIR</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Crepa al Pastor</h3>
+                    <p class="price">$ 115.00</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="saladas">
+                <div class="product-image-container">
+                    <img src="https://i.postimg.cc/43N85mTC/crep-chori.jpg" alt="Choriqueso">
+                    <div class="bottom-actions">
+                        <button class="action-btn"
+                            onclick="openQuickView('Crepa Choriqueso', 105.00, 'hhttps://i.postimg.cc/43N85mTC/crep-chori.jpg', 'Intenso sabor con chorizo frito escurrido bañado en una mezcla de quesos asaderos derretidos.')">VISTA
+                            RÁPIDA</button>
+                        <button class="action-btn"
+                            onclick="addToCart('Crepa Choriqueso', 105.00, 'https://i.postimg.cc/43N85mTC/crep-chori.jpg')">AÑADIR</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Crepa Choriqueso</h3>
+                    <p class="price">$ 105.00</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="dulces">
+                <div class="product-image-container">
+                    <span class="product-badge fire">🔥 MÁS VENDIDO</span>
+                    <img src="https://i.postimg.cc/C5YnGnWj/crep-doblechoc.jpg" alt="Chocolate">
+                    <div class="bottom-actions">
+                        <button class="action-btn"
+                            onclick="openQuickView('Crepa Doble Chocolate', 95.00, 'https://i.postimg.cc/C5YnGnWj/crep-doblechoc.jpg', 'Masa de cacao, rellena de nutella, chispas de chocolate semiamargo y espolvoreada con brownie.')">VISTA
+                            RÁPIDA</button>
+                        <button class="action-btn"
+                            onclick="addToCart('Crepa Doble Chocolate', 95.00, 'https://i.postimg.cc/C5YnGnWj/crep-doblechoc.jpg')">AÑADIR</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Doble Chocolate</h3>
                     <p class="price">$ 95.00</p>
                 </div>
             </div>
 
-            <div class="product-card" data-category="postres">
+            <div class="product-card" data-category="dulces">
                 <div class="product-image-container">
-                    <img src="https://i.postimg.cc/QxrL1zfw/wf.avif" alt="Waffles">
+                    <img src="https://i.postimg.cc/BQ9MzhGw/crep-fres.jpg" alt="Fresa">
                     <div class="bottom-actions">
-                        <button class="action-btn" onclick="openQuickView('Street Waffles', 110.00, 'https://i.postimg.cc/QxrL1zfw/wf.avif', 'Waffles estilo belga, dorados y crujientes, bañados en jarabe de maple y azúcar glass.')">VISTA RÁPIDA</button>
-                        <button class="action-btn" onclick="addToCart('Street Waffles', 110.00, 'https://i.postimg.cc/QxrL1zfw/wf.avif')">AÑADIR</button>
+                        <button class="action-btn"
+                            onclick="openQuickView('Crepa Fresas c/ Crema', 85.00, 'https://i.postimg.cc/BQ9MzhGw/crep-fres.jpg', 'Fresas naturales fileteadas, queso crema dulce, leche condensada y un toque de azúcar glass.')">VISTA
+                            RÁPIDA</button>
+                        <button class="action-btn"
+                            onclick="addToCart('Crepa Fresas c/ Crema', 85.00, 'https://i.postimg.cc/BQ9MzhGw/crep-fres.jpg')">AÑADIR</button>
                     </div>
                 </div>
                 <div class="product-info">
-                    <h3>Street Waffles</h3>
-                    <p class="price">$ 110.00</p>
+                    <h3>Fresas c/ Crema</h3>
+                    <p class="price">$ 85.00</p>
                 </div>
             </div>
-
-            <div class="product-card" data-category="postres">
-                <div class="product-image-container">
-                    <span class="product-badge new">✨ NUEVO</span>
-                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=500&q=80" alt="Donas">
-                    <div class="bottom-actions">
-                        <button class="action-btn" onclick="openQuickView('Donas Neón (3pz)', 80.00, 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=500&q=80', 'Trío de mini donas glaseadas con sabores vibrantes y topping de cereal.')">VISTA RÁPIDA</button>
-                        <button class="action-btn" onclick="addToCart('Donas Neón (3pz)', 80.00, 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=500&q=80')">AÑADIR</button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Donas Neón (3pz)</h3>
-                    <p class="price">$ 80.00</p>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="snacks">
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="Burger">
-                    <div class="bottom-actions">
-                        <button class="action-btn" onclick="openQuickView('Midnight Burger', 135.00, 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80', 'Doble carne de res smash, queso cheddar derretido, tocino crujiente y salsa secreta.')">VISTA RÁPIDA</button>
-                        <button class="action-btn" onclick="addToCart('Midnight Burger', 135.00, 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80')">AÑADIR</button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Midnight Burger</h3>
-                    <p class="price">$ 135.00</p>
-                </div>
-            </div>
-
             <div class="product-card" data-category="bebidas">
                 <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80" alt="Shake">
+                    <span class="product-badge fire">🔥 MÁS VENDIDO</span>
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80"
+                        alt="Chocolate">
                     <div class="bottom-actions">
-                        <button class="action-btn" onclick="openQuickView('Oreo Shake', 75.00, 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80', 'Malteada espesa de vainilla procesada con galletas Oreo enteras y crema batida.')">VISTA RÁPIDA</button>
-                        <button class="action-btn" onclick="addToCart('Oreo Shake', 75.00, 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80')">AÑADIR</button>
+                        <button class="action-btn" g
+                            onclick="openQuickView('Oreo Shake', 75.00, 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80', 'Shake sabor galleta oreo, con crema chantilly y chocolate liquido.')">VISTA
+                            RÁPIDA</button>
+                        <button class="action-btn"
+                            onclick="addToCart('Oreo Shake', 75.00, 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80x')">AÑADIR</button>
                     </div>
                 </div>
                 <div class="product-info">
@@ -147,21 +228,23 @@
                     <p class="price">$ 75.00</p>
                 </div>
             </div>
-
-            <div class="product-card" data-category="snacks">
+            <div class="product-card" data-category="comidas">
                 <div class="product-image-container">
-                    <span class="product-badge new">✨ NUEVO</span>
-                    <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80" alt="Papas">
+                    <img src="https://i.postimg.cc/85DvdNJs/band.jpg" alt="Banderilla">
                     <div class="bottom-actions">
-                        <button class="action-btn" onclick="openQuickView('Papas Trufa', 65.00, 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80', 'Papas a la francesa doradas, bañadas con aceite de trufa blanca y queso parmesano rallado.')">VISTA RÁPIDA</button>
-                        <button class="action-btn" onclick="addToCart('Papas Trufa', 65.00, 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80')">AÑADIR</button>
+                        <button class="action-btn"
+                            onclick="openQuickView('Banderilla Clasica', 85.00, 'https://i.postimg.cc/85DvdNJs/band.jpg', 'Deliciosa mezcla de champiñones salteados con finas hierbas y abundante queso manchego derretido.')">VISTA
+                            RÁPIDA</button>
+                        <button class="action-btn"
+                            onclick="addToCart('Banderilla Clasica', 85.00, 'https://i.postimg.cc/85DvdNJs/band.jpg')">AÑADIR</button>
                     </div>
                 </div>
                 <div class="product-info">
-                    <h3>Papas Trufa</h3>
-                    <p class="price">$ 65.00</p>
+                    <h3>Banderilla Clasica</h3>
+                    <p class="price">$ 85.00</p>
                 </div>
             </div>
+
 
         </div>
     </section>
@@ -169,13 +252,15 @@
     <footer class="site-footer">
         <div class="footer-container">
             <p class="footer-legal">
-                Monto mínimo por orden para entrega a domicilio de $149 pesos. Nuestra sucursal está abierta de Lunes a Domingo de 4:00 pm a 10:00 pm.
+                Monto mínimo por orden para entrega a domicilio de $149 pesos. Nuestra sucursal está abierta de Lunes a
+                Domingo de 4:00 pm a 10:00 pm.
             </p>
             <div class="footer-divider"></div>
             <p class="footer-seo">
-                ¿Estás buscando <strong>postres y snacks para entrega a domicilio</strong> o recoger en tienda? Deja que <strong>NIGHT BITES</strong> calme ese antojo de medianoche.
+                ¿Estás buscando <strong>crepas y postres para entrega a domicilio</strong> o recoger en tienda? Deja que
+                <strong>L U N A | L L E N A</strong> calme ese antojo de medianoche.
             </p>
-            <p class="footer-copy">© 2026 M I D N I G H T . S N A C K S. RESERVADOS TODOS LOS DERECHOS.</p>
+            <p class="footer-copy">© 2026 L U N A | L L E N A . RESERVADOS TODOS LOS DERECHOS.</p>
             <p class="footer-designer">
                 DESIGNED BY <span class="designer-name">JOHN H</span>
             </p>
@@ -185,34 +270,103 @@
     <div id="toast-container"></div>
 
     <div class="mobile-bottom-nav">
-        <a href="#" onclick="document.getElementById('menu-section').scrollIntoView({behavior: 'smooth'})"><i class="fas fa-th-large"></i> <span>Menú</span></a>
+        <a href="#" onclick="document.getElementById('menu-section').scrollIntoView({behavior: 'smooth'})"><i
+                class="fas fa-th-large"></i> <span>Menú</span></a>
         <a href="#" onclick="openMapModal()"><i class="fas fa-map-marker-alt"></i> <span>Ubicación</span></a>
-        <a href="#" onclick="toggleCart()"><i class="fas fa-shopping-bag"></i> <span>Orden (<span id="mobile-cart-count">0</span>)</span></a>
+        <a href="#" onclick="toggleCart()"><i class="fas fa-shopping-bag"></i> <span>Orden (<span
+                    id="mobile-cart-count">0</span>)</span></a>
     </div>
 
     <div id="mapModal" class="modal">
         <div class="modal-content premium-modal" style="padding: 30px !important;">
             <span class="close-btn" onclick="closeMapModal()">×</span>
             <div class="modal-header" style="margin-bottom: 20px;">
-                <h2 style="font-size: 24px;"><i class="fas fa-map-marked-alt" style="color: var(--accent-color);"></i> Tu Ubicación</h2>
+                <h2 style="font-size: 24px;"><i class="fas fa-map-marked-alt" style="color: var(--accent-color);"></i>
+                    Tu Ubicación</h2>
                 <p>Busca o usa tu ubicación actual</p>
             </div>
-            
+
             <div class="input-group" style="margin-bottom: 15px; position: relative;">
-                <input type="text" id="address-input" placeholder="Ej. Av. Universidad 123..." style="background: #111; color: #fff; border: 1px solid #444; width: 100%; padding: 12px; padding-right: 45px;">
-                <button onclick="getCurrentLocation()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: var(--accent-color); cursor: pointer; font-size: 18px; transition: 0.3s;" title="Usar mi ubicación actual" id="gps-btn">
+                <input type="text" id="address-input" placeholder="Ej. Av. Universidad 123..."
+                    style="background: #111; color: #fff; border: 1px solid #444; width: 100%; padding: 12px; padding-right: 45px;">
+                <button onclick="getCurrentLocation()"
+                    style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: var(--accent-color); cursor: pointer; font-size: 18px; transition: 0.3s;"
+                    title="Usar mi ubicación actual" id="gps-btn">
                     <i class="fas fa-location-arrow"></i>
                 </button>
             </div>
 
-            <div class="map-container" style="width: 100%; height: 250px; background: #222; border-radius: 4px; margin-bottom: 20px; overflow: hidden; position: relative;">
-                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -100%); z-index: 10; color: var(--accent-color); font-size: 35px; text-shadow: 0 5px 10px rgba(0,0,0,0.8); pointer-events: none; animation: floatPin 2s infinite ease-in-out;">
+            <div class="map-container"
+                style="width: 100%; height: 250px; background: #222; border-radius: 4px; margin-bottom: 20px; overflow: hidden; position: relative;">
+                <div
+                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -100%); z-index: 10; color: var(--accent-color); font-size: 35px; text-shadow: 0 5px 10px rgba(0,0,0,0.8); pointer-events: none; animation: floatPin 2s infinite ease-in-out;">
                     <i class="fas fa-map-marker"></i>
                 </div>
-                <iframe id="google-map-iframe" src="https://maps.google.com/maps?q=Mexico&t=&z=12&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy"></iframe>
+                <iframe id="google-map-iframe"
+                    src="https://maps.google.com/maps?q=Mexico&t=&z=12&ie=UTF8&iwloc=&output=embed" width="100%"
+                    height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen=""
+                    loading="lazy"></iframe>
             </div>
 
             <button class="btn-premium checkout-btn-final" onclick="confirmAddress()">CONFIRMAR DIRECCIÓN</button>
+        </div>
+    </div>
+
+    <div id="customCrepeModal" class="modal">
+        <div class="modal-content premium-modal" style="text-align: left; padding: 30px !important;">
+            <span class="close-btn" onclick="closeCustomCrepeModal()">×</span>
+            <div class="modal-header" style="margin-bottom: 10px; text-align: center;">
+                <h2><i class="fas fa-magic" style="color: var(--accent-color);"></i> ARMA TU CREPA</h2>
+                <p>Combina los ingredientes como tú quieras</p>
+            </div>
+
+            <form id="custom-crepe-form" class="custom-options">
+                <h4 class="custom-title">TIPO DE CREPA (Base $60)</h4>
+                <div class="ingredient-grid">
+                    <label><input type="radio" name="base" value="Dulce" checked> Base Dulce</label>
+                    <label><input type="radio" name="base" value="Salada"> Base Salada</label>
+                </div>
+
+                <h4 class="custom-title">TOPPINGS DULCES (+$15 c/u)</h4>
+                <div class="ingredient-grid">
+                    <label><input type="checkbox" class="crepe-extra" value="Fresa" onchange="updateCrepePrice()">
+                        Fresa</label>
+                    <label><input type="checkbox" class="crepe-extra" value="Plátano" onchange="updateCrepePrice()">
+                        Plátano</label>
+                    <label><input type="checkbox" class="crepe-extra" value="Nutella" onchange="updateCrepePrice()">
+                        Nutella</label>
+                    <label><input type="checkbox" class="crepe-extra" value="Cajeta" onchange="updateCrepePrice()">
+                        Cajeta</label>
+                    <label><input type="checkbox" class="crepe-extra" value="Helado" onchange="updateCrepePrice()">
+                        Helado Vainilla</label>
+                    <label><input type="checkbox" class="crepe-extra" value="Helado" onchange="updateCrepePrice()">
+                        Helado Chocolate</label>
+                </div>
+
+                <h4 class="custom-title">TOPPINGS SALADOS (+$15 c/u)</h4>
+                <div class="ingredient-grid">
+                    <label><input type="checkbox" class="crepe-extra" value="Queso" onchange="updateCrepePrice()"> Queso
+                        Manchego</label>
+                    <label><input type="checkbox" class="crepe-extra" value="Jamón" onchange="updateCrepePrice()">
+                        Jamón</label>
+                    <label><input type="checkbox" class="crepe-extra" value="Champiñones" onchange="updateCrepePrice()">
+                        Champiñones</label>
+                    <label><input type="checkbox" class="crepe-extra" value="Pepperoni" onchange="updateCrepePrice()">
+                        Pepperoni</label>
+                    <label><input type="checkbox" class="crepe-extra" value="Pastor" onchange="updateCrepePrice()">
+                        Pastor</label>
+                    <label><input type="checkbox" class="crepe-extra" value="Pastor" onchange="updateCrepePrice()">
+                        Chorizo</label>
+                </div>
+            </form>
+
+            <h3 id="customCrepeTotal"
+                style="text-align: right; margin-top: 15px; color: var(--accent-color); font-size: 24px;">Total: $60.00
+            </h3>
+
+            <button class="btn-premium checkout-btn-final" onclick="addCustomToCart()" style="margin-top: 15px;">
+                AÑADIR A LA ORDEN
+            </button>
         </div>
     </div>
 
@@ -235,18 +389,20 @@
         <div class="cart-items" id="cartItemsContainer">
             <p style="text-align:center; margin-top:20px; color:#666;">Tu carrito está vacío.</p>
         </div>
-        
+
         <div class="cart-upsell">
             <p>¿Te faltó algo para beber?</p>
             <div class="upsell-item">
                 <span>🥤 Oreo Shake ($75)</span>
-                <button onclick="addToCart('Oreo Shake (Upsell)', 75.00, 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80')">AGREGAR</button>
+                <button
+                    onclick="addToCart('Oreo Shake', 75.00, 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80')">AGREGAR</button>
             </div>
         </div>
 
         <div class="cart-footer">
             <h3>Total: $<span id="cart-total">0.00</span></h3>
-            <button class="btn-premium checkout-btn" style="width: 100%; margin-top: 15px; color: #fff;" onclick="sendWhatsAppOrder()">
+            <button class="btn-premium checkout-btn" style="width: 100%; margin-top: 15px;  color: #fff;"
+                onclick="sendWhatsAppOrder()">
                 <i class="fab fa-whatsapp"></i> PEDIR POR WHATSAPP
             </button>
         </div>
@@ -254,4 +410,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
