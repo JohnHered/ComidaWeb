@@ -1,6 +1,3 @@
-/* =========================================
-   VARIABLES (MODO STREETWEAR / DARK KITCHEN)
-   ========================================= */
 :root {
     --primary-color: #f4f4f4;
     --accent-color: #ff3300;
@@ -23,28 +20,7 @@ body {
     overflow-x: hidden;
 }
 
-/* =========================================
-   TIPOGRAFÍAS BRUTALISTAS
-   ========================================= */
-.logo,
-.section-title,
-.slide-content h1,
-.modal-header h2,
-.cart-header h2,
-.custom-title {
-    font-family: 'Oswald', sans-serif !important;
-    text-transform: uppercase;
-}
-
-.logo {
-    font-size: 32px;
-    letter-spacing: 5px;
-    color: #fff;
-}
-
-/* =========================================
-   BARRA DE NAVEGACIÓN
-   ========================================= */
+/* LOGO Y NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -57,6 +33,25 @@ body {
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid #333;
+}
+
+
+.im_logo {
+    width: 60px;
+    display: block;
+    filter: none !important;
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 24px;
+    border: none !important;
+    background: transparent !important;
 }
 
 .cart-btn {
@@ -74,38 +69,38 @@ body {
     color: #000;
 }
 
-/* =========================================
-   BARRA DE DELIVERY / PICKUP
-   ========================================= */
+/* BARRA DELIVERY / PICKUP (INTEGRADA) */
 .delivery-bar {
     position: fixed;
-    top: 83px;
+    top: 79px;
     width: 100%;
     background: #111;
-    border-bottom: 2px solid #333;
+    border-bottom: 1px solid #333;
     z-index: 999;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 18px 5%;
+    padding: 10px 5%;
+    gap: 0;
 }
 
 .toggle-container {
     display: flex;
     background: #000;
-    border-radius: 30px;
-    padding: 5px;
+    border-radius: 30px 0 0 30px;
+    padding: 3px;
     border: 1px solid #333;
+    border-right: none;
 }
 
 .toggle-btn {
     background: transparent;
     border: none;
     color: #888;
-    padding: 12px 25px;
+    padding: 10px 25px;
     border-radius: 25px;
     font-weight: 800;
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
     cursor: pointer;
     transition: var(--transition);
@@ -119,16 +114,18 @@ body {
 
 .address-selector {
     color: #fff;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 10px;
     background: #1a1a1a;
-    padding: 12px 20px;
-    border-radius: 6px;
+    padding: 11px 20px;
+    border-radius: 0 30px 30px 0;
     border: 1px solid #333;
+    border-left: none;
+    height: 45px;
     transition: var(--transition);
 }
 
@@ -136,6 +133,28 @@ body {
     border-color: var(--accent-color);
     background: #000;
 }
+
+/* PRODUCTOS Y DEMÁS (LIMPIOS) */
+.product-card {
+    background: transparent;
+    border: none;
+    text-align: left;
+    flex: 0 0 320px;
+}
+
+.product-card a {
+    text-decoration: none !important;
+}
+
+/* QUITA SUBRAYADOS */
+
+/* QUITAR LÍNEAS DE LISTAS DESPLEGABLES */
+.dropdown-content a {
+    border: none !important;
+    border-bottom: none !important;
+    text-decoration: none !important;
+}
+
 
 /* =========================================
    SLIDER PRINCIPAL (Hero)
@@ -1038,4 +1057,65 @@ body {
         width: 85px !important;
         height: 85px !important;
     }
+}
+
+/* --- Mejora de la Barra de Selección --- */
+.delivery-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.toggle-container {
+    background: rgba(255, 255, 255, 0.05);
+    /* Transparencia base */
+    backdrop-filter: blur(10px);
+    /* Efecto cristal */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    padding: 5px;
+    display: flex;
+    gap: 10px;
+}
+
+.toggle-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.toggle-btn.active {
+    background: var(--accent-color);
+    /* Color naranja cuando está activo */
+    box-shadow: 0 4px 15px rgba(255, 51, 0, 0.3);
+}
+
+/* --- Ajuste del Logo en el Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 24px;
+}
+
+.im_logo {
+    width: 60px;
+    /* Tamaño más equilibrado para el logo */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
 }

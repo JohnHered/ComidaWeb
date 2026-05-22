@@ -19,7 +19,10 @@
     </div>
 
     <nav class="navbar">
-        <div class="logo">L U N A | L L E N A</div>
+        <div class="logo">
+            <img src="https://i.postimg.cc/gj71QYZs/log.jpg" class="im_logo" alt="Logo">
+            L U N A | L L E N A
+        </div>
         <button class="cart-btn" onclick="toggleCart()">🛒 Orden (<span id="cart-count">0</span>)</button>
     </nav>
 
@@ -53,7 +56,7 @@
     <section class="circular-categories" id="menu-section">
         <div class="category-item" onclick="filterMenu('saladas')">
             <div class="category-img-box">
-                <img src="https://i.postimg.cc/Kj0Q6fNj/crepa.jpg" alt="Saladas">
+                <img src="https://i.postimg.cc/J7XRm8vJ/hawa.png" alt="Saladas">
             </div>
             <span>SALADAS</span>
         </div>
@@ -65,16 +68,15 @@
         </div>
         <div class="category-item" onclick="filterMenu('bebidas')">
             <div class="category-img-box">
-                <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=200&q=80"
-                    alt="Malteadas">
+                <img src="https://i.postimg.cc/4xcTChw4/frap.jpg" alt="Malteadas">
             </div>
-            <span>SHAKES</span>
+            <span>FRAPPES</span>
         </div>
         <div class="category-item" onclick="filterMenu('comidas')">
             <div class="category-img-box">
-                <img src="https://i.postimg.cc/85DvdNJs/band.jpg" alt="Malteadas">
+                <img src="https://i.postimg.cc/85DvdNJs/band.jpg" alt="Snack">
             </div>
-            <span>BANDERILLAS</span>
+            <span>BANDERILLAS COREANAS</span>
         </div>
         <div class="category-item" onclick="filterMenu('todos')">
             <div class="category-img-box"
@@ -91,123 +93,139 @@
 
             <div class="product-card" data-category="saladas">
                 <div class="product-image-container">
-                    <img src="https://i.postimg.cc/Kj0Q6fNj/crepa.jpg" alt="Champiñones">
+                    <img src="https://i.postimg.cc/Jzkn2J86/crepizza.png" alt="Crepizza">
                     <div class="bottom-actions">
                         <button class="action-btn"
-                            onclick="openQuickView('Crepa Champiñones y Queso', 85.00, 'https://i.postimg.cc/Kj0Q6fNj/crepa.jpg', 'Deliciosa mezcla de champiñones salteados con finas hierbas y abundante queso manchego derretido.')">VISTA
+                            onclick="openQuickView('Crepizza', 65.00, 'https://i.postimg.cc/Jzkn2J86/crepizza.png', 'Deliciosa mezcla de salami asado con abundante queso manchego derretido y aderezo de chipotle.')">VISTA
                             RÁPIDA</button>
                         <button class="action-btn"
-                            onclick="addToCart('Crepa Champiñones y Queso', 85.00, 'https://i.postimg.cc/Kj0Q6fNj/crepa.jpg')">AÑADIR</button>
+                            onclick="addToCart('Crepizza', 65.00, 'https://i.postimg.cc/Jzkn2J86/crepizza.png')">AÑADIR</button>
                     </div>
                 </div>
                 <div class="product-info">
-                    <h3>Champiñones c/ Queso</h3>
-                    <p class="price">$ 85.00</p>
+                    <h3>Crepizza</h3>
+                    <p class="price">$ 65.00</p>
                 </div>
             </div>
 
             <div class="product-card" data-category="saladas">
                 <div class="product-image-container">
                     <span class="product-badge fire">🔥 CLÁSICA</span>
-                    <img src="https://i.postimg.cc/Y0XZ6YhN/crep-hawa.jpg" alt="Hawaiana">
+                    <img src="https://i.postimg.cc/J7XRm8vJ/hawa.png" alt="Hawaiana">
                     <div class="bottom-actions">
                         <button class="action-btn"
-                            onclick="openQuickView('Crepa Hawaiana', 90.00, 'https://i.postimg.cc/Y0XZ6YhN/crep-hawa.jpg', 'El clásico contraste: Jamón de pavo, piña en almíbar asada y costra de queso derretido.')">VISTA
+                            onclick="openQuickView('Crepa Hawaiana', 65.00, 'https://i.postimg.cc/J7XRm8vJ/hawa.png', 'El clásico contraste: Jamón de pavo, piña en almíbar asada con abundante queso manchego derretido')">VISTA
                             RÁPIDA</button>
                         <button class="action-btn"
-                            onclick="addToCart('Crepa Hawaiana', 90.00, 'https://i.postimg.cc/Y0XZ6YhN/crep-hawa.jpg')">AÑADIR</button>
+                            onclick="addToCart('Crepa Hawaiana', 65.00, 'https://i.postimg.cc/J7XRm8vJ/hawa.png')">AÑADIR</button>
                     </div>
                 </div>
                 <div class="product-info">
                     <h3>Crepa Hawaiana</h3>
-                    <p class="price">$ 90.00</p>
+                    <p class="price">$ 65.00</p>
                 </div>
             </div>
 
             <div class="product-card" data-category="dulces">
                 <div class="product-image-container">
-                    <img src="https://i.postimg.cc/XYXGkbDs/crep-banana.jpg" alt="Banana Split">
+                    <img src="https://i.postimg.cc/x8DgLL0V/Tres-Amores.png" alt="Tres Amores">
                     <div class="bottom-actions">
                         <button class="action-btn"
-                            onclick="openQuickView('Crepa Banana Split', 100.00, 'https://i.postimg.cc/XYXGkbDs/crep-banana.jpg', 'Nutella, trozos de plátano fresco, helado de vainilla, nuez troceada y jarabe de chocolate.')">VISTA
+                            onclick="openQuickView('Tres Amores', 65.00, 'https://i.postimg.cc/x8DgLL0V/Tres-Amores.png', 'Cajeta , fresa natural y lechera.')">VISTA
                             RÁPIDA</button>
                         <button class="action-btn"
-                            onclick="addToCart('Crepa Banana Split', 100.00, 'https://i.postimg.cc/XYXGkbDs/crep-banana.jpg')">AÑADIR</button>
+                            onclick="addToCart('Tres Amores', 65.00, 'https://i.postimg.cc/x8DgLL0V/Tres-Amores.png')">AÑADIR</button>
                     </div>
                 </div>
                 <div class="product-info">
-                    <h3>Banana Split</h3>
-                    <p class="price">$ 100.00</p>
+                    <h3>Tres Amores</h3>
+                    <p class="price">$ 65.00</p>
                 </div>
             </div>
 
-            <div class="product-card" data-category="saladas">
-                <div class="product-image-container">
-                    <span class="product-badge new">✨ EXÓTICA</span>
-                    <img src="https://i.postimg.cc/nrQB2tzV/crepastor.jpg" alt="Pastor">
-                    <div class="bottom-actions">
-                        <button class="action-btn"
-                            onclick="openQuickView('Crepa al Pastor', 115.00, 'https://i.postimg.cc/nrQB2tzV/crepastor.jpg', 'Fusión urbana: Carne al pastor adobada, piña asada, queso manchego, cebolla y cilantro.')">VISTA
-                            RÁPIDA</button>
-                        <button class="action-btn"
-                            onclick="addToCart('Crepa al Pastor', 115.00, 'https://i.postimg.cc/nrQB2tzV/crepastor.jpg')">AÑADIR</button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3>Crepa al Pastor</h3>
-                    <p class="price">$ 115.00</p>
-                </div>
-            </div>
 
-            <div class="product-card" data-category="saladas">
+            <div class="product-card" data-category="dulces">
                 <div class="product-image-container">
-                    <img src="https://i.postimg.cc/43N85mTC/crep-chori.jpg" alt="Choriqueso">
+                    <img src="https://i.postimg.cc/T1q09B4k/tentacion.png" alt="Tentacion">
                     <div class="bottom-actions">
                         <button class="action-btn"
-                            onclick="openQuickView('Crepa Choriqueso', 105.00, 'hhttps://i.postimg.cc/43N85mTC/crep-chori.jpg', 'Intenso sabor con chorizo frito escurrido bañado en una mezcla de quesos asaderos derretidos.')">VISTA
+                            onclick="openQuickView('Tentacion', 65.00, 'https://i.postimg.cc/T1q09B4k/tentacion.png', 'Queso crema, Mermelada de zarzamora y chocolate hersheys.')">VISTA
                             RÁPIDA</button>
                         <button class="action-btn"
-                            onclick="addToCart('Crepa Choriqueso', 105.00, 'https://i.postimg.cc/43N85mTC/crep-chori.jpg')">AÑADIR</button>
+                            onclick="addToCart('Tentacion', 65.00, 'https://i.postimg.cc/T1q09B4k/tentacion.png')">AÑADIR</button>
                     </div>
                 </div>
                 <div class="product-info">
-                    <h3>Crepa Choriqueso</h3>
-                    <p class="price">$ 105.00</p>
+                    <h3>Tentacion</h3>
+                    <p class="price">$ 65.00</p>
                 </div>
             </div>
 
             <div class="product-card" data-category="dulces">
                 <div class="product-image-container">
                     <span class="product-badge fire">🔥 MÁS VENDIDO</span>
-                    <img src="https://i.postimg.cc/C5YnGnWj/crep-doblechoc.jpg" alt="Chocolate">
+                    <img src="https://i.postimg.cc/bwCT37zr/Chocofresa.png" alt="ChocoFresa">
                     <div class="bottom-actions">
                         <button class="action-btn"
-                            onclick="openQuickView('Crepa Doble Chocolate', 95.00, 'https://i.postimg.cc/C5YnGnWj/crep-doblechoc.jpg', 'Masa de cacao, rellena de nutella, chispas de chocolate semiamargo y espolvoreada con brownie.')">VISTA
+                            onclick="openQuickView('ChocoFresa', 65.00, 'https://i.postimg.cc/bwCT37zr/Chocofresa.png', 'Fresa natural, Nutella y Mermelada de fresa.')">VISTA
                             RÁPIDA</button>
                         <button class="action-btn"
-                            onclick="addToCart('Crepa Doble Chocolate', 95.00, 'https://i.postimg.cc/C5YnGnWj/crep-doblechoc.jpg')">AÑADIR</button>
+                            onclick="addToCart('ChocoFresa', 65.00, 'https://i.postimg.cc/bwCT37zr/Chocofresa.png')">AÑADIR</button>
                     </div>
                 </div>
                 <div class="product-info">
-                    <h3>Doble Chocolate</h3>
-                    <p class="price">$ 95.00</p>
+                    <h3>ChocoFresa</h3>
+                    <p class="price">$ 65.00</p>
                 </div>
             </div>
 
             <div class="product-card" data-category="dulces">
                 <div class="product-image-container">
-                    <img src="https://i.postimg.cc/BQ9MzhGw/crep-fres.jpg" alt="Fresa">
+                    <img src="https://i.postimg.cc/Nfb7j32C/Tutifruti.png" alt="Tutifruti">
                     <div class="bottom-actions">
                         <button class="action-btn"
-                            onclick="openQuickView('Crepa Fresas c/ Crema', 85.00, 'https://i.postimg.cc/BQ9MzhGw/crep-fres.jpg', 'Fresas naturales fileteadas, queso crema dulce, leche condensada y un toque de azúcar glass.')">VISTA
+                            onclick="openQuickView('Tutifruti', 65.00, 'https://i.postimg.cc/Nfb7j32C/Tutifruti.png', 'Frutos rojos, queso crema y Fresa natural.')">VISTA
                             RÁPIDA</button>
                         <button class="action-btn"
-                            onclick="addToCart('Crepa Fresas c/ Crema', 85.00, 'https://i.postimg.cc/BQ9MzhGw/crep-fres.jpg')">AÑADIR</button>
+                            onclick="addToCart('Tutifruti', 65.00, 'https://i.postimg.cc/Nfb7j32C/Tutifruti.png')">AÑADIR</button>
                     </div>
                 </div>
                 <div class="product-info">
-                    <h3>Fresas c/ Crema</h3>
-                    <p class="price">$ 85.00</p>
+                    <h3>Tutifruti</h3>
+                    <p class="price">$ 65.00</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="dulces">
+                <div class="product-image-container">
+                    <span class="product-badge fire">😋 DELICIOSA</span>
+                    <img src="https://i.postimg.cc/T10mhb1g/Chocofrutas.png" alt="ChocoFrutas">
+                    <div class="bottom-actions">
+                        <button class="action-btn"
+                            onclick="openQuickView('ChocoFrutas', 65.00, 'https://i.postimg.cc/T10mhb1g/Chocofrutas.png', 'Platano, NutelLa,Queso crema y Fresa.')">VISTA
+                            RÁPIDA</button>
+                        <button class="action-btn"
+                            onclick="addToCart('ChocoFrutas', 65.00, 'https://i.postimg.cc/T10mhb1g/Chocofrutas.pngg')">AÑADIR</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>ChocoFrutas</h3>
+                    <p class="price">$ 65.00</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="dulces">
+                <div class="product-image-container">
+                    <img src="https://i.postimg.cc/FRNFnBFT/Clasica.png" alt="Clasica">
+                    <div class="bottom-actions">
+                        <button class="action-btn"
+                            onclick="openQuickView('Clasica', 60.00, 'https://i.postimg.cc/FRNFnBFT/Clasica.png', 'Platano, NutelLa,Queso crema y Fresa.')">VISTA
+                            RÁPIDA</button>
+                        <button class="action-btn"
+                            onclick="addToCart('Clasica', 60.00, 'https://i.postimg.cc/FRNFnBFT/Clasica.png')">AÑADIR</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Clasica</h3>
+                    <p class="price">$ 60.00</p>
                 </div>
             </div>
             <div class="product-card" data-category="bebidas">
@@ -217,31 +235,98 @@
                         alt="Chocolate">
                     <div class="bottom-actions">
                         <button class="action-btn" g
-                            onclick="openQuickView('Oreo Shake', 75.00, 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80', 'Shake sabor galleta oreo, con crema chantilly y chocolate liquido.')">VISTA
+                            onclick="openQuickView('Frappe de Oreo', 70.00, 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80', 'Shake sabor galleta oreo, con crema chantilly y chocolate liquido.')">VISTA
                             RÁPIDA</button>
                         <button class="action-btn"
-                            onclick="addToCart('Oreo Shake', 75.00, 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80x')">AÑADIR</button>
+                            onclick="addToCart('Frappe de Oreo', 70.00, 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80x')">AÑADIR</button>
                     </div>
                 </div>
                 <div class="product-info">
-                    <h3>Oreo Shake</h3>
-                    <p class="price">$ 75.00</p>
+                    <h3>Frappe de Oreo</h3>
+                    <p class="price">$ 70.00</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="bebidas">
+                <div class="product-image-container">
+                    <span class="product-badge fire">🔥 MÁS VENDIDO</span>
+                    <img src="https://i.postimg.cc/C5dzK8VN/frap-choco.jpg" alt="Chocolate">
+                    <div class="bottom-actions">
+                        <button class="action-btn" g
+                            onclick="openQuickView('Frappe de Chocolate', 70.00, 'https://i.postimg.cc/C5dzK8VN/frap-choco.jpg', 'Frappe de Chocolate.')">VISTA
+                            RÁPIDA</button>
+                        <button class="action-btn"
+                            onclick="addToCart('Frappe de Chocolate', 70.00, 'https://i.postimg.cc/C5dzK8VN/frap-choco.jpg')">AÑADIR</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Frappe de Chocolate</h3>
+                    <p class="price">$ 70.00</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="bebidas">
+                <div class="product-image-container">
+                    <span class="product-badge fire">😋 DELICIOSA</span>
+                    <img src="https://i.postimg.cc/BvGLCt2N/frap-caram.png" alt="Caramelo">
+                    <div class="bottom-actions">
+                        <button class="action-btn" g
+                            onclick="openQuickView('Frappe de Caramelo', 70.00, 'https://i.postimg.cc/BvGLCt2N/frap-caram.png', 'Frappe de Caramelo.')">VISTA
+                            RÁPIDA</button>
+                        <button class="action-btn"
+                            onclick="addToCart('Frappe de Caramelo', 70.00, 'https://i.postimg.cc/BvGLCt2N/frap-caram.png')">AÑADIR</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Frappe de Caramelo</h3>
+                    <p class="price">$ 70.00</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="bebidas">
+                <div class="product-image-container">
+                    <img src="https://i.postimg.cc/DzY5xtcm/frp-fres.png" alt="Fresa">
+                    <div class="bottom-actions">
+                        <button class="action-btn" g
+                            onclick="openQuickView('Frappe de Fresa', 70.00, 'https://i.postimg.cc/DzY5xtcm/frp-fres.png', 'Frappe de Fresa.')">VISTA
+                            RÁPIDA</button>
+                        <button class="action-btn"
+                            onclick="addToCart('Frappe de Fresa', 70.00, 'https://i.postimg.cc/DzY5xtcm/frp-fres.png')">AÑADIR</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Frappe de Fresa</h3>
+                    <p class="price">$ 70.00</p>
                 </div>
             </div>
             <div class="product-card" data-category="comidas">
                 <div class="product-image-container">
-                    <img src="https://i.postimg.cc/85DvdNJs/band.jpg" alt="Banderilla">
+                    <span class="product-badge fire">😋 DELICIOSA</span>
+                    <img src="https://i.postimg.cc/SRgBdZjN/Ban-salch.png" alt="Banderilla">
                     <div class="bottom-actions">
                         <button class="action-btn"
-                            onclick="openQuickView('Banderilla Clasica', 85.00, 'https://i.postimg.cc/85DvdNJs/band.jpg', 'Deliciosa mezcla de champiñones salteados con finas hierbas y abundante queso manchego derretido.')">VISTA
+                            onclick="openQuickView('Banderilla de Salchicha', 30.00, 'https://i.postimg.cc/SRgBdZjN/Ban-salch.png', 'Banderrila de salchciha.')">VISTA
                             RÁPIDA</button>
                         <button class="action-btn"
-                            onclick="addToCart('Banderilla Clasica', 85.00, 'https://i.postimg.cc/85DvdNJs/band.jpg')">AÑADIR</button>
+                            onclick="addToCart('Banderilla de Salchicha', 30.00, 'https://i.postimg.cc/SRgBdZjN/Ban-salch.png')">AÑADIR</button>
                     </div>
                 </div>
                 <div class="product-info">
-                    <h3>Banderilla Clasica</h3>
-                    <p class="price">$ 85.00</p>
+                    <h3>Banderilla Salchicha</h3>
+                    <p class="price">$ 30.00</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="comidas">
+                <div class="product-image-container">
+                    <img src="https://i.postimg.cc/Y0d5RXjk/Ban-ques.png" alt="Banderilla">
+                    <div class="bottom-actions">
+                        <button class="action-btn"
+                            onclick="openQuickView('Banderilla Queso', 40.00, 'https://i.postimg.cc/Y0d5RXjk/Ban-ques.png', 'Banderilla de queso manchego.')">VISTA
+                            RÁPIDA</button>
+                        <button class="action-btn"
+                            onclick="addToCart('Banderilla Queso', 40.00, 'https://i.postimg.cc/Y0d5RXjk/Ban-ques.png')">AÑADIR</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Banderilla Queso</h3>
+                    <p class="price">$ 40.00</p>
                 </div>
             </div>
 
@@ -258,7 +343,7 @@
             <div class="footer-divider"></div>
             <p class="footer-seo">
                 ¿Estás buscando <strong>crepas y postres para entrega a domicilio</strong> o recoger en tienda? Deja que
-                <strong>L U N A | L L E N A</strong> calme ese antojo de medianoche.
+                <strong>L U N A | L L E N A</strong> calme ese antojo de algo delicioso.
             </p>
             <p class="footer-copy">© 2026 L U N A | L L E N A . RESERVADOS TODOS LOS DERECHOS.</p>
             <p class="footer-designer">
@@ -393,9 +478,14 @@
         <div class="cart-upsell">
             <p>¿Te faltó algo para beber?</p>
             <div class="upsell-item">
-                <span>🥤 Oreo Shake ($75)</span>
+                <span>🥤Frappe Oreo ($70)</span>
                 <button
-                    onclick="addToCart('Oreo Shake', 75.00, 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80')">AGREGAR</button>
+                    onclick="addToCart('Frappe Oreo', 70.00, 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80')">AGREGAR</button>
+            </div>
+            <div class="upsell-item">
+                <span>🥤Frappe Fresa ($70)</span>
+                <button
+                    onclick="addToCart('Frappe Fresa', 70.00, 'https://i.postimg.cc/DzY5xtcm/frp-fres.png')">AGREGAR</button>
             </div>
         </div>
 
