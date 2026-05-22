@@ -1032,7 +1032,7 @@ body {
         flex-direction: column;
         gap: 15px;
         padding: 20px 5%;
-        top: 65px;
+        top: 45px;
     }
 
     .hero-slider {
@@ -1072,7 +1072,6 @@ body {
     background: rgba(255, 255, 255, 0.05);
     /* Transparencia base */
     backdrop-filter: blur(10px);
-    /* Efecto cristal */
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50px;
