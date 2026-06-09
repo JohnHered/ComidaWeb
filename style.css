@@ -122,9 +122,8 @@ body {
     gap: 10px;
     background: #1a1a1a;
     padding: 11px 20px;
-    border-radius: 0 30px 30px 0;
+    border-radius: 30px;
     border: 1px solid #333;
-    border-left: none;
     height: 45px;
     transition: var(--transition);
 }
@@ -134,7 +133,7 @@ body {
     background: #000;
 }
 
-/* PRODUCTOS Y DEMÁS (LIMPIOS) */
+/* PRODUCTOS Y DEMÁS */
 .product-card {
     background: transparent;
     border: none;
@@ -146,9 +145,7 @@ body {
     text-decoration: none !important;
 }
 
-/* QUITA SUBRAYADOS */
 
-/* QUITAR LÍNEAS DE LISTAS DESPLEGABLES */
 .dropdown-content a {
     border: none !important;
     border-bottom: none !important;

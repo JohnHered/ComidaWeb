@@ -44,7 +44,7 @@ function updateCartUI() {
     let sum = 0;
 
     if (cart.length === 0) {
-        container.innerHTML = '<p style="text-align:center; margin-top:20px; color:#666;">Sin items en la orden.</p>';
+        container.innerHTML = '<p style="text-align:center; margin-top:20px; color:#666;">Sin productos en la orden.</p>';
     } else {
         cart.forEach((item, index) => {
             sum += item.price;
@@ -123,7 +123,7 @@ function closeCustomCrepeModal() {
 function updateCrepePrice() {
     let total = 60;
     const extras = document.querySelectorAll('.crepe-extra:checked');
-    total += (extras.length * 15);
+    total += (extras.length * 5);
     document.getElementById('customCrepeTotal').innerText = `Total: $${total.toFixed(2)}`;
 }
 
@@ -134,7 +134,7 @@ function addCustomToCart() {
 
     extras.forEach(cb => {
         selectedExtras.push(cb.value);
-        total += 15;
+        total += 5;
     });
 
     let desc = selectedExtras.length > 0 ? selectedExtras.join(', ') : "Sencilla";
