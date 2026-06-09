@@ -160,7 +160,7 @@ function sendWhatsAppOrder() {
 
     const deliveryType = document.getElementById('btn-delivery').classList.contains('active') ? "DOMICILIO" : "RECOGER EN SUCURSAL";
     const address = document.getElementById('display-address').innerText;
-    const phoneNumber = "5527796409";
+    const phoneNumber = "5951125795";
 
     let message = `NUEVA ORDEN !! CREPAS  L U N A | L L E N A \n\n`;
     message += `Tipo: ${deliveryType}\n`;
